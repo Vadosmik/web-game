@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body style="margin: 0; display: grid; justify-content: center;"> 
+        <content style="max-height: 800px; max-width: 390px;">
+
+        <!-- инф бар (хп  мп  энергия и деньги) -->
+        <header>
+            <div id="inf" style="background: darkgray; height: 55px; width: 390px; display: inline-flex; justify-content: space-between;"                            >
+                <!--  под замену на графический интерфейс -->
+                <ul style="font-size: 15px; list-style-type:none; display: inline-grid; margin: 0 0 0 10px; padding: 0;">
+                    <li>Hp: <a id="hp"></li>
+                    <li>Mp: <a id="mp"></li>
+                    <li>Energy: <a id="eg"></li>
+                </ul>
+                <p style="margin-right: 10px;">Coin: <a style="width: 45px; background: gray; padding: 2.5px;" id="coin"></a></p>
+
+            </div>
+        </header>       
+
+        
+        <div id="Hero" style="background: lightgray; min-height: 700px; min-width: 300px;">
+
+            <div style="height: 200px; width: 100px; background: #ffba00; margin: auto;"></div>
+
+        </div>
+
+        <div id="map" style="display: none; justify-content: center; height: 700px">
+            
+            f;f
+
+        </div>
+
+        <div id="home" style="display: none; justify-content: center; background-image: url(Drawing-1.sketchpad.png); height: 700px">
+
+            <input style="width: 250px; height: 250px; margin-top: 5px; opacity: 0; padding: 0; border: 0; z-index: 2;" value="" onclick="Craft()" type="button">
+
+        </div>
+
+
+        <!-- меню бар игры основной -->
+        <div style="background: gray; height: 45px; display: flex; justify-content: space-around; padding-top: 5px">
+        <button style="width: 40px; height: 40px;">древо навыков</button>
+
+        <input id="map_button" style="width: 60px; height: 60px; margin: -25px 0 0 0;" value="Карта" onclick="Map_on()" type="button">
+
+        <input id="home_button" style="width: 40px; height: 40px; text-align: center;" value="дом" onclick="Home()" type="button">
+
+        </div>
+
+        <!-- меню бар магазин -->
+        <div style="background: gray; height: 45px; width: 390px; display: none; justify-content: space-around; padding-top: 5px">
+            <button style="width: 40px; height: 40px;">древо навыков</button>
+            <button style="width: 40px; height: 40px;">древо навыков</button>
+            <button style="width: 60px; height: 60px; margin: -25px 0 0 0">карта</button>
+            <button style="width: 40px; height: 40px;">древо навыков</button>
+            <input id="home_button" style="width: 40px; height: 40px; text-align: center;" value="дом" onclick="Home()" type="button">
+        </div>
+
+        </content>
+
+
+
+
+        <script>
+            var hp=5;
+            var mp=5;
+            var enrg=5;
+            var coin=12345;
+            document.getElementById("hp").innerHTML = hp;
+            document.getElementById("mp").innerHTML = mp;
+            document.getElementById("eg").innerHTML = enrg;
+            document.getElementById("coin").innerHTML = coin;
+        </script>
+        <script>
+            function Map_on() {
+                document.getElementById("map").style.display = "flex";
+                document.getElementById("Hero").style.display = "none";
+                document.getElementById("home").style.display = "none";
+                document.getElementById("home_button").value = "Дом";
+                document.getElementById("home_button").setAttribute('onclick','Home()');
+                document.getElementById("map_button").setAttribute('onclick','Map_off()');
+            }
+            function Map_off() {
+                document.getElementById("map").style.display = "none";
+                document.getElementById("Hero").style.display = "";
+                document.getElementById("home").style.display = "none";
+                document.getElementById("home_button").value = "Дом";
+                document.getElementById("home_button").setAttribute('onclick','Home()');
+                document.getElementById("map_button").setAttribute('onclick','Map_on()');
+            }
+            function Home() {
+                document.getElementById("home").style.display = "flex";
+                document.getElementById("Hero").style.display = "none";
+                document.getElementById("map").style.display = "none";
+                document.getElementById("home_button").value = "Герой";
+                document.getElementById("home_button").setAttribute('onclick','Hero()');
+                document.getElementById("map_button").setAttribute('onclick','Map_on()');
+            }
+            function Hero() {
+                document.getElementById("home").style.display = "none";
+                document.getElementById("Hero").style.display = "";
+                document.getElementById("map").style.display = "none";
+                document.getElementById("home_button").value = "Дом";
+                document.getElementById("home_button").setAttribute('onclick','Home()');
+                document.getElementById("map_button").setAttribute('onclick','Map_on()');
+            }
+            function Craft() {
+                alert('super')
+            }
+        </script>
+    </body>
+</html>
